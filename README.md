@@ -4,7 +4,7 @@ A collection of pre-commit hooks, which are handy when using Ansible or Ansible 
 
 ## How to
 
-Install pre-commit.
+Install [pre-commit](https://pre-commit.com/).
 
 Add this to your config:
 
