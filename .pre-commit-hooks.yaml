@@ -1,0 +1,7 @@
+- id: ansible-vault-encrypted
+  name: check if files are encrypted with Ansible Vault
+  description: checks if files are supposed to be encrypted and prevents the commit if they are not
+  entry: ansible-vault-encrypted
+  language: python
+  stages: [commit, push, manual]
+

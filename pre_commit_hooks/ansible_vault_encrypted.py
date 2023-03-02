@@ -11,8 +11,9 @@ def main(argv=None) -> int:
         help='Filenames pre-commit believes are changed.',
     )
     parser.add_argument(
-        'extras', nargs='*',
-        help='Extra file names to check',
+        '--extras',
+        dest='extras',
+        help='Comma separated list of extra files to check',
     )
     args = parser.parse_args(argv)
     unencrypted_files = []
@@ -21,10 +22,11 @@ def main(argv=None) -> int:
         if '.vault.' in filename:
             check_me = True
 
-        for extra in args.extras:
-            if extra in filename:
-                check_me = True
-                break
+        if args.extras:
+            for extra in args.extras.split(','):
+                if extra in filename:
+                    check_me = True
+                    break
 
         if not check_me:
             continue
